@@ -24,3 +24,4 @@ phases:
       - pwd
 artifacts:
     files: imagedefinitions.json
+printf '[{"jaggu":"comtainer_jaggu","imageUri":"image_URI"}]' > imagedefinitions.json
