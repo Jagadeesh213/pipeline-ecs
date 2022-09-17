@@ -43,7 +43,8 @@ pipeline {
           chmod +x changebuildnumber.sh
           ./changebuildnumber.sh $BUILD_NUMBER
 	  sh -x ecs-auto.sh
-          '''
+      printf '[{"name":"container_name","imageUri":"image_URI"}]' >
+imagedefinitions.json    '''
      }    
     }
 }
