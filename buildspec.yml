@@ -1,6 +1,22 @@
 version: 0.2
 
-phases:
+phases:install:
+        runtime-versions:
+            docker: 18
+    build:
+        commands:
+            - apt-get install jq -y
+            - ContainerName="todo"
+            - ImageURI=$(cat imageDetail.json | jq -r '.ImageURI')
+            - printf '[{"jaggu":"CONTAINER_jaggu","imageUri":"IMAGE_URI"}]' > imagedefinitions.json
+            - sed -i -e "s|CONTAINER_JAGGU|$Containerjaggu|g" imagedefinitions.json
+            - sed -i -e "s|IMAGE_URI|$ImageURI|g" imagedefinitions.json
+            - cat imagedefinitions.json
+
+artifacts:
+    files:
+        - imagedefinitions.json
+
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -24,4 +40,4 @@ phases:
       - pwd
 artifacts:
     files: imagedefinitions.json
-printf '[{jaggu":"comtainer_jaggu","imageUri":"image_URI"}]' > imagedefinitions.json
+printf '[{jaggu":"container_jaggu","imageUri":"image_URI"}]' > imagedefinitions.json
