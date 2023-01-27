@@ -13,7 +13,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t  $REPOSITORY_URI:sample-app-${CODEBUILD_BUILD_NUMBER} .
+      - docker build -t  $REPOSITORY_URI:758910003445.dkr.ecr.ap-south-1.amazonaws.com/sample-app-${CODEBUILD_BUILD_NUMBER} .
   post_build:
     commands:
       - echo Build completed on `date`
