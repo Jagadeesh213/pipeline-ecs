@@ -18,9 +18,9 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push $REPOSITORY_URI:758910003445.dkr.ecr.ap-south-1.amazonaws.com/sample-app-${CODEBUILD_BUILD_NUMBER}
+      - docker push $REPOSITORY_URI:jagadeesh:image-app-${CODEBUILD_BUILD_NUMBER}
       - echo writing image definitions file...
-      - printf '[{"name":"sample","imageUri":"%s"}]' $REPOSITORY_URI:758910003445.dkr.ecr.ap-south-1.amazonaws.com/sample-app-${CODEBUILD_BUILD_NUMBER} > imagedefinitions.json
+      - printf '[{"name":"sample","imageUri":"%s"}]' $REPOSITORY_URI:jagadeesh:image-app-${CODEBUILD_BUILD_NUMBER} > imagedefinitions.json
       - cat imagedefinitions.json 
       - pwd
 artifacts:
